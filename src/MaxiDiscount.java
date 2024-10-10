@@ -1,12 +1,18 @@
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
 public class MaxiDiscount extends Rabattstrategie {
 
-    public MaxiDiscount(double regulaerpreis, GregorianCalendar flugdatum, String flugnummer, String bezeichnung) {
-        super(regulaerpreis, flugdatum, flugnummer, bezeichnung);
+    public MaxiDiscount(double regulaerpreis, GregorianCalendar flugdatum, String flugnummer) {
+        Objects.requireNonNull(regulaerpreis);
+        Objects.requireNonNull(flugdatum);
+        Objects.requireNonNull(flugnummer);
+        super(regulaerpreis, flugdatum, flugnummer);
+        this.setBezeichnung("MaxiDiscount");
     }
 
-    public double berechneReduziertenPreis() {
+    @Override
+    public double getReduzierterPreis(double d) {
         return this.getRegulaerpreis() * 0.7;
     }
 }

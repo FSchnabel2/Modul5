@@ -7,22 +7,27 @@ public class Angebot {
     private double regulaerpreis;
     private GregorianCalendar flugdatum;
     private String flugnummer;
-    private double reduzierterPreis;
     private Rabattstrategie rabattstrategie;
+    private double reduzierterPreis;
 
     public Angebot(double regulaerpreis, GregorianCalendar flugdatum, String flugnummer) {
-        Objects.requireNonNull(regulaerpreis);
+        if(regulaerpreis <= 0) throw new RuntimeException("Regulärpreis darf nicht kleiner gleich 0 sein!");
         Objects.requireNonNull(flugdatum);
         Objects.requireNonNull(flugnummer);
         this.regulaerpreis = regulaerpreis;
         this.flugdatum = flugdatum;
         this.flugnummer = flugnummer;
         rabattstrategieWaehlen();
+        this.reduzierterPreis = this.rabattstrategie.getReduzierterPreis();
     }
 
     protected void rabattstrategieWaehlen() {
         if(this.flugdatum.get(Calendar.MONTH) == Calendar.JANUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.APRIL || this.flugdatum.get(Calendar.MONTH) == Calendar.OCTOBER) {
-            this.rabattstrategie = new MaxiDiscount(this.getRegulaerpreis(), this.getFlugDatum(), this.getFlugnummer(), );
+            this.rabattstrategie = new MaxiDiscount(this.getRegulaerpreis(), this.getFlugdatum(), this.getFlugnummer());
+        } else if(this.flugdatum.get(Calendar.MONTH) == Calendar.FEBRUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.MARCH) {
+            this.rabattstrategie = new MidiDiscount(this.getRegulaerpreis(), this.getFlugdatum(), this.getFlugnummer());
+        } else {
+            this.rabattstrategie = new ZeroDiscount(this.getRegulaerpreis(), this.getFlugdatum(), this.getFlugnummer());
         }
     }
 
@@ -54,8 +59,7 @@ public class Angebot {
     }
 
     public double getReduzierterPreis() {
-
-        return this.reduzierterPreis;
+        return reduzierterPreis;
     }
 
     public String anzeigen() {
