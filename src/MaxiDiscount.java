@@ -6,7 +6,7 @@ public class MaxiDiscount extends Rabattstrategie {
         super(regulaerpreis, flugdatum, flugnummer, bezeichnung);
     }
 
-    public void berechneReduziertenPreis() {
-
+    public double berechneReduziertenPreis() {
+        return this.getRegulaerpreis() * 0.7;
     }
 }

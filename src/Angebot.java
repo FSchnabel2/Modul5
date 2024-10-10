@@ -1,3 +1,5 @@
+import java.time.Month;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
@@ -5,6 +7,8 @@ public class Angebot {
     private double regulaerpreis;
     private GregorianCalendar flugdatum;
     private String flugnummer;
+    private double reduzierterPreis;
+    private Rabattstrategie rabattstrategie;
 
     public Angebot(double regulaerpreis, GregorianCalendar flugdatum, String flugnummer) {
         Objects.requireNonNull(regulaerpreis);
@@ -13,10 +17,13 @@ public class Angebot {
         this.regulaerpreis = regulaerpreis;
         this.flugdatum = flugdatum;
         this.flugnummer = flugnummer;
+        rabattstrategieWaehlen();
     }
 
     protected void rabattstrategieWaehlen() {
-
+        if(this.flugdatum.get(Calendar.MONTH) == Calendar.JANUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.APRIL || this.flugdatum.get(Calendar.MONTH) == Calendar.OCTOBER) {
+            this.rabattstrategie = new MaxiDiscount(this.getRegulaerpreis(), this.getFlugDatum(), this.getFlugnummer(), );
+        }
     }
 
     public double getRegulaerpreis() {
@@ -47,7 +54,8 @@ public class Angebot {
     }
 
     public double getReduzierterPreis() {
-        return regulaerpreis;
+
+        return this.reduzierterPreis;
     }
 
     public String anzeigen() {
