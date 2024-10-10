@@ -49,4 +49,12 @@ public class Angebot {
     public double getReduzierterPreis() {
         return regulaerpreis;
     }
+
+    public String anzeigen() {
+        return "Angebot{" +
+                "regulaerpreis=" + regulaerpreis +
+                ", flugdatum=" + flugdatum +
+                ", flugnummer='" + flugnummer + '\'' +
+                '}';
+    }
 }
