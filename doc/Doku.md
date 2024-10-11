@@ -29,3 +29,9 @@ Dieses Programm verwaltet Flugangebote und berechnet reduzierte Preise basierend
 3. Der reduzierte Preis wird berechnet
 
 ## Beispielausgabe
+Regulärer Preis: 200.0
+Reduzierter Preis: 140.0
+Angewandte Rabattstrategie: MaxiDiscount
+
+## Hinweis
+Monate in `GregorianCalendar` sind nullbasiert (Januar = 0, Dezember = 11)
