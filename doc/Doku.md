@@ -17,3 +17,15 @@ Dieses Programm verwaltet Flugangebote und berechnet reduzierte Preise basierend
 ### Rabattstrategie (abstrakt)
 - Attribut: bezeichnung
 - Abstrakte Methode: `getReduzierterPreis(double d)`
+
+### Konkrete Rabattstrategien
+1. **MidiDiscount**: 15% Rabatt
+2. **MaxiDiscount**: 30% Rabatt
+3. **ZeroDiscount**: Kein Rabatt
+
+## Funktionsweise
+1. Ein `Angebot` wird mit Preis, Datum und Flugnummer erstellt
+2. Basierend auf dem Monat wird eine Rabattstrategie gewählt
+3. Der reduzierte Preis wird berechnet
+
+## Beispielausgabe
