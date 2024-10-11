@@ -13,6 +13,6 @@ public class MaxiDiscount extends Rabattstrategie {
 
     @Override
     public double getReduzierterPreis(double d) {
-        return this.getRegulaerpreis() * 0.7;
+        return d * 0.7;
     }
 }

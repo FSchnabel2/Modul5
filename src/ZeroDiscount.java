@@ -13,6 +13,6 @@ public class ZeroDiscount extends Rabattstrategie {
 
     @Override
     public double getReduzierterPreis(double d) {
-        return this.getRegulaerpreis();
+        return d;
     }
 }

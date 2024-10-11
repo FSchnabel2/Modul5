@@ -18,7 +18,7 @@ public class Angebot {
         this.flugdatum = flugdatum;
         this.flugnummer = flugnummer;
         rabattstrategieWaehlen();
-        this.reduzierterPreis = this.rabattstrategie.getReduzierterPreis();
+        this.reduzierterPreis = this.rabattstrategie.getReduzierterPreis(this.getRegulaerpreis());
     }
 
     protected void rabattstrategieWaehlen() {
