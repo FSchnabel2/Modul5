@@ -62,6 +62,10 @@ public class Angebot {
         return reduzierterPreis;
     }
 
+    public Rabattstrategie getRabattstrategie() {
+        return rabattstrategie;
+    }
+
     public String anzeigen() {
         return "Angebot{" +
                 "regulaerpreis=" + regulaerpreis +
