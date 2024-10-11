@@ -11,9 +11,9 @@ public class Angebot {
     private double reduzierterPreis;
 
     public Angebot(double regulaerpreis, GregorianCalendar flugdatum, String flugnummer) {
-        if(regulaerpreis <= 0) throw new RuntimeException("Regulärpreis darf nicht kleiner gleich 0 sein!");
-        Objects.requireNonNull(flugdatum);
-        Objects.requireNonNull(flugnummer);
+        if(regulaerpreis <= 0) throw new IllegalArgumentException("Regulärpreis darf nicht kleiner gleich 0 sein!");
+        Objects.requireNonNull(flugdatum, "Flugdatum darf nicht null sein!");
+        Objects.requireNonNull(flugnummer, "Flugnummer darf nicht null sein!");
         this.regulaerpreis = regulaerpreis;
         this.flugdatum = flugdatum;
         this.flugnummer = flugnummer;
