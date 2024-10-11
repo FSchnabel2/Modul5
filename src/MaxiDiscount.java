@@ -3,12 +3,8 @@ import java.util.Objects;
 
 public class MaxiDiscount extends Rabattstrategie {
 
-    public MaxiDiscount(double regulaerpreis, GregorianCalendar flugdatum, String flugnummer) {
-        Objects.requireNonNull(regulaerpreis);
-        Objects.requireNonNull(flugdatum);
-        Objects.requireNonNull(flugnummer);
-        super(regulaerpreis, flugdatum, flugnummer);
-        this.setBezeichnung("MaxiDiscount");
+    public MaxiDiscount() {
+        super("MaxiDiscount");
     }
 
     @Override

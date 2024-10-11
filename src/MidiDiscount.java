@@ -3,9 +3,8 @@ import java.util.Objects;
 
 public class MidiDiscount extends Rabattstrategie {
 
-    public MidiDiscount(String bezeichnung) {
-        Objects.requireNonNull(regulaerpreis);
-        setBezeichnung("MidiDiscount");
+    public MidiDiscount() {
+        super("MidiDiscount");
     }
 
     @Override
