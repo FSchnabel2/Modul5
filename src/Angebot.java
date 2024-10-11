@@ -22,7 +22,7 @@ public class Angebot {
     }
 
     protected void rabattstrategieWaehlen() {
-        int monat = this.flugdatum.get(Calendar.MONTH);
+        int monat = this.flugdatum.get(Calendar.MONTH) - 1;
         if(monat == Calendar.JANUARY || monat == Calendar.APRIL || monat == Calendar.OCTOBER) {
             this.rabattstrategie = new MaxiDiscount();
         } else if(monat == Calendar.FEBRUARY || monat == Calendar.MARCH) {
