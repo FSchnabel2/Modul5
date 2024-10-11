@@ -22,9 +22,10 @@ public class Angebot {
     }
 
     protected void rabattstrategieWaehlen() {
-        if(this.flugdatum.get(Calendar.MONTH) == Calendar.JANUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.APRIL || this.flugdatum.get(Calendar.MONTH) == Calendar.OCTOBER) {
+        int monat = this.flugdatum.get(Calendar.MONTH);
+        if(monat == Calendar.JANUARY || monat == Calendar.APRIL || monat == Calendar.OCTOBER) {
             this.rabattstrategie = new MaxiDiscount();
-        } else if(this.flugdatum.get(Calendar.MONTH) == Calendar.FEBRUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.MARCH) {
+        } else if(monat == Calendar.FEBRUARY || monat == Calendar.MARCH) {
             this.rabattstrategie = new MidiDiscount();
         } else {
             this.rabattstrategie = new ZeroDiscount();
