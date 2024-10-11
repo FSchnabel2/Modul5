@@ -23,11 +23,11 @@ public class Angebot {
 
     protected void rabattstrategieWaehlen() {
         if(this.flugdatum.get(Calendar.MONTH) == Calendar.JANUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.APRIL || this.flugdatum.get(Calendar.MONTH) == Calendar.OCTOBER) {
-            this.rabattstrategie = new MaxiDiscount(this.getRegulaerpreis(), this.getFlugdatum(), this.getFlugnummer());
+            this.rabattstrategie = new MaxiDiscount();
         } else if(this.flugdatum.get(Calendar.MONTH) == Calendar.FEBRUARY || this.flugdatum.get(Calendar.MONTH) == Calendar.MARCH) {
-            this.rabattstrategie = new MidiDiscount(this.getRegulaerpreis(), this.getFlugdatum(), this.getFlugnummer());
+            this.rabattstrategie = new MidiDiscount();
         } else {
-            this.rabattstrategie = new ZeroDiscount(this.getRegulaerpreis(), this.getFlugdatum(), this.getFlugnummer());
+            this.rabattstrategie = new ZeroDiscount();
         }
     }
 
